@@ -18,7 +18,9 @@ app.get("/",(req,res)=>{
 app.post('/orders', async (req, res) => {
     try {
       const order = req.body;
-      const insertedOrders = await orders.insertMany(order);
+      if (order.length>0){
+        const insertedOrders = await orders.insertMany(order);
+      }
       res.status(201).json(insertedOrders);
     } catch (error) {
       res.status(500).json({ error: error.message });
