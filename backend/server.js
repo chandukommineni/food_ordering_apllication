@@ -2,12 +2,14 @@ const express=require("express")
 const mongoose=require("mongoose")
 const orders=require("./Model")
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app=express()
+
 
 app.listen(3000,()=>{ console.log("server is running")})
 
 app.use(bodyParser.json());
-
+app.use(cors())
 mongoose.connect("mongodb+srv://chandu:8500@orders.xsbqmon.mongodb.net/?retryWrites=true&w=majority&appName=Orders").then(()=>console.log("database connetion established")).catch((err)=>console.log(err))
 
 app.get("/",(req,res)=>{
