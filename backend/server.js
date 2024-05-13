@@ -6,7 +6,7 @@ const cors = require('cors');
 const app=express()
 
 
-app.listen(3000,()=>{ console.log("server is running")})
+// app.listen(3000,()=>{ console.log("server is running")})
 
 app.use(bodyParser.json());
 app.use(cors())
