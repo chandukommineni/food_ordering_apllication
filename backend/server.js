@@ -10,6 +10,9 @@ app.use(bodyParser.json());
 
 mongoose.connect("mongodb+srv://chandu:8500@orders.xsbqmon.mongodb.net/?retryWrites=true&w=majority&appName=Orders").then(()=>console.log("database connetion established")).catch((err)=>console.log(err))
 
+api.get("/",(req,res)=>{
+  res.send("working successfully")
+})
 app.post('/orders', async (req, res) => {
     try {
       const order = req.body;
