@@ -9,7 +9,11 @@ const app=express()
 app.listen(3000,()=>{ console.log("server is running")})
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors({
+  origin: '*', // Allow all origins or specify your frontend URL for better security
+  methods: ['GET', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
 mongoose.connect("mongodb+srv://chandu:8500@orders.xsbqmon.mongodb.net/?retryWrites=true&w=majority&appName=Orders").then(()=>console.log("database connetion established")).catch((err)=>console.log(err))
 
 app.get("/",(req,res)=>{
